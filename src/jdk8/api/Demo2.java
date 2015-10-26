@@ -15,8 +15,6 @@ import java.util.Date;
 public class Demo2 {
     public static void main(String[] args) {
         // Get current date and time
-        Date dateNormal = new Date();//old format
-        System.out.println(dateNormal);
         LocalDateTime date = LocalDateTime.now();
         System.out.println("Current date/time with built-in LocalDateTime class format: " + date);
         
@@ -52,7 +50,7 @@ public class Demo2 {
         
         // Solution #1
         LocalDate today2 = LocalDate.now();
-        LocalDate lastBusDay = today2.with(TemporalAdjusters.lastInMonth(DayOfWeek.FRIDAY));
+        LocalDate lastBusDay = today2.with(TemporalAdjusters.lastInMonth(DayOfWeek.THURSDAY));
         System.out.println(lastBusDay.getDayOfMonth());
         
         // Find the difference between two dates, resulting in hours plus 
@@ -78,7 +76,7 @@ public class Demo2 {
         ZonedDateTime local = ZonedDateTime.now();
         local = local.withZoneSameInstant(ZoneId.of("Europe/Berlin"));
         
-        System.out.println("Date and time in Berlin, Germany " + local.format(fmt));
+        System.out.println(local.format(fmt));
         
         // Calculate a due date that is 15 days from now
         LocalDateTime now = LocalDateTime.now();
