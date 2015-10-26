@@ -10,7 +10,8 @@ import java.util.Calendar;
 import java.util.Date;
 
 /**
- *
+ *Utility class for performing various date related functions.
+ * 
  * @author John Slowik <jslowik@my.wctc.edu>
  */
 public class DateUtilities {
@@ -151,13 +152,13 @@ public class DateUtilities {
 	    throw new IllegalArgumentException("Start Date Missing!");
 	}
 
-	String ret = "00:00";
+	String dateMessage = "00:00";
 
 	long timeCompare = endTime.compareTo(startTime);
 	if (timeCompare < 0) {
 	    throw new IllegalArgumentException("Start Date after End Date!");
 	} else if (timeCompare == 0) {
-	    return ret;
+	    return dateMessage;
 	}
 
 	long diffMs = endTime.getTimeInMillis() - startTime.getTimeInMillis();
@@ -165,14 +166,14 @@ public class DateUtilities {
 	long diffHr = diffMins / MIN_PER_HR;
 	long diffMn = diffMins % MIN_PER_HR;
         long diffDays = diffHr / HR_PER_DAY;
-	ret = Long.toString(diffHr);
+	dateMessage = Long.toString(diffHr);
 	if (diffMn > 9) {
-	    ret = ret + ":" + Long.toString(diffMn);
+	    dateMessage = dateMessage + ":" + Long.toString(diffMn);
 	} else {
-	    ret = ret + ":0" + Long.toString(diffMn);
+	    dateMessage = dateMessage + ":0" + Long.toString(diffMn);
 	}
 
-	return ret;
+	return dateMessage;
     }
     
     
