@@ -9,6 +9,11 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
+//avoid making these methods static
+//come back and change this up a bit
+
+
+
 /**
  *Utility class for performing various date related functions.
  * 
